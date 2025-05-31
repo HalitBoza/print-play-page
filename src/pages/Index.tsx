@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star } from 'lucide-react';
 
 const Index = () => {
