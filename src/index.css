@@ -111,12 +111,23 @@
     }
   }
 
-  @keyframes pulse-glow {
+  @keyframes gentle-pulse {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+      opacity: 0.3;
+      transform: scale(1);
     }
     50% {
-      box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes soft-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
     }
   }
 
@@ -125,34 +136,42 @@
   }
 
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+  .animate-gentle-pulse {
+    animation: gentle-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-soft-glow {
+    animation: soft-glow 2s ease-in-out infinite;
   }
 
   .scroll-animate {
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Custom gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Custom gradient text for HOPE brand */
+  .hope-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #64748b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Backdrop blur fallback */
-  .backdrop-blur-fallback {
-    background-color: rgba(255, 255, 255, 0.8);
+  /* Enhanced backdrop blur */
+  .backdrop-blur-soft {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
-  @supports (backdrop-filter: blur(10px)) {
-    .backdrop-blur-fallback {
-      background-color: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-    }
+  /* Smooth hover transitions */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
   }
 }
