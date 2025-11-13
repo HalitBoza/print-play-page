@@ -1,11 +1,12 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star, Phone, Instagram, Facebook } from 'lucide-react';
+import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star, Phone, Instagram, Facebook, Snowflake, Sun } from 'lucide-react';
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [activeCollection, setActiveCollection] = useState<'winter' | 'summer'>('winter');
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -154,6 +155,162 @@ const Index = () => {
         <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-sky-300 to-blue-300 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-r from-blue-300 to-slate-300 rounded-full opacity-20 animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-gradient-to-r from-slate-300 to-sky-300 rounded-full opacity-20 animate-pulse delay-500"></div>
+      </section>
+
+      {/* Collections Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="mx-auto max-w-7xl">
+          <div className="scroll-animate opacity-0 translate-y-8 text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">
+              Koleksionet Tona
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+              Zgjidhni koleksionin e duhur për sezonin tuaj
+            </p>
+            
+            {/* Collection Toggle */}
+            <div className="flex justify-center gap-4 mb-12">
+              <Button
+                onClick={() => setActiveCollection('winter')}
+                variant={activeCollection === 'winter' ? 'default' : 'outline'}
+                size="lg"
+                className={`rounded-full px-8 py-6 text-lg transition-all duration-300 ${
+                  activeCollection === 'winter' 
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg' 
+                    : 'border-blue-300 text-blue-600 hover:bg-blue-50'
+                }`}
+              >
+                <Snowflake className="mr-2 h-5 w-5" />
+                Koleksioni Dimëror
+              </Button>
+              <Button
+                onClick={() => setActiveCollection('summer')}
+                variant={activeCollection === 'summer' ? 'default' : 'outline'}
+                size="lg"
+                className={`rounded-full px-8 py-6 text-lg transition-all duration-300 ${
+                  activeCollection === 'summer' 
+                    ? 'bg-sky-500 hover:bg-sky-600 text-white shadow-lg' 
+                    : 'border-sky-300 text-sky-600 hover:bg-sky-50'
+                }`}
+              >
+                <Sun className="mr-2 h-5 w-5" />
+                Koleksioni Veror
+              </Button>
+            </div>
+          </div>
+
+          {/* Winter Collection */}
+          {activeCollection === 'winter' && (
+            <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-300">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop`}
+                    alt="Bluza me Kapuç Dimërore"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <Users className="h-12 w-12 text-blue-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Bluza me Kapuç Dimërore</h3>
+                  <p className="text-slate-600">
+                    Bluza të ngrohta dhe të rehatshme me dizajnet tuaja, perfekte për dimër të ftohtë.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-blue-200 to-slate-300">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop`}
+                    alt="Kupa për Pije të Ngrohta"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <Coffee className="h-12 w-12 text-blue-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Kupa për Pije të Ngrohta</h3>
+                  <p className="text-slate-600">
+                    Kupa të personalizuara për kafenë dhe çajin tuaj dimëror të preferuar.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-cyan-200 to-blue-300">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&auto=format&fit=crop`}
+                    alt="Kartëvizita Profesionale"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <CreditCard className="h-12 w-12 text-blue-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Kartëvizita Profesionale</h3>
+                  <p className="text-slate-600">
+                    Bëni përshtypje në takimet e dimrit me kartëvizita elegante.
+                  </p>
+                </div>
+              </Card>
+            </div>
+          )}
+
+          {/* Summer Collection */}
+          {activeCollection === 'summer' && (
+            <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-300">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop`}
+                    alt="Bluza Verore"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <Shirt className="h-12 w-12 text-sky-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Bluza Verore</h3>
+                  <p className="text-slate-600">
+                    Bluza të lehta dhe të freskëta për ditët e nxehta të verës.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-slate-200 to-blue-300">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&auto=format&fit=crop`}
+                    alt="Stilolapsa për Verë"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <Pen className="h-12 w-12 text-sky-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Stilolapsa për Verë</h3>
+                  <p className="text-slate-600">
+                    Stilolapsa elegante për konferencat dhe ngjarjet verore.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200">
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-slate-200 to-sky-300">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop`}
+                    alt="Broshura Verore"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <Star className="h-12 w-12 text-sky-600 mb-4" />
+                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Broshura Verore</h3>
+                  <p className="text-slate-600">
+                    Materiale marketingu të gjalla për promovime verore.
+                  </p>
+                </div>
+              </Card>
+            </div>
+          )}
+        </div>
       </section>
 
       {/* Services Section */}
