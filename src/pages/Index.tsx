@@ -29,50 +29,50 @@ const Index = () => {
   const products = [
     {
       icon: Shirt,
-      title: "Custom T-Shirts",
-      description: "Premium quality tees with your unique designs. Perfect for events, teams, or personal style.",
+      title: "Bluza të Personalizuara",
+      description: "Bluza me cilësi premium me dizajnet tuaja unike. Perfekte për ngjarje, ekipe, ose stil personal.",
       image: "photo-1521572163474-6864f9cf17ab",
       color: "from-sky-200 to-blue-300"
     },
     {
       icon: Coffee,
-      title: "Custom Mugs",
-      description: "Start every morning with your favorite design. Dishwasher safe and vibrant colors.",
+      title: "Kupa të Personalizuara",
+      description: "Filloni çdo mëngjes me dizajnin tuaj të preferuar. Të sigurta për larëse enësh dhe me ngjyra të gjalla.",
       image: "photo-1544787219-7f47ccb76574",
       color: "from-blue-200 to-slate-300"
     },
     {
       icon: CreditCard,
-      title: "Business Cards",
-      description: "Professional cards that make lasting impressions. Stand out with premium finishes.",
+      title: "Kartëvizita",
+      description: "Karta profesionale që lënë përshtypje të qëndrueshme. Dallohu me përfundime premium.",
       image: "photo-1586953208448-b95a79798f07",
       color: "from-cyan-200 to-blue-300"
     },
     {
       icon: Pen,
-      title: "Custom Pens",
-      description: "Elegant writing instruments with your logo or message. Perfect for corporate gifts.",
+      title: "Stilolapsa të Personalizuar",
+      description: "Instrumente elegante shkrimi me logon ose mesazhin tuaj. Perfekte për dhurata korporative.",
       image: "photo-1586953208448-b95a79798f07",
       color: "from-slate-200 to-blue-300"
     },
     {
       icon: Users,
-      title: "Team Sweatshirts",
-      description: "Cozy hoodies and sweatshirts for teams, events, or casual wear. Comfort meets style.",
+      title: "Bluza me Kapuç për Ekipe",
+      description: "Bluza të rehatshme për ekipe, ngjarje, ose veshje të përditshme. Komoditeti takon stilin.",
       image: "photo-1521572163474-6864f9cf17ab",
       color: "from-sky-200 to-slate-300"
     },
     {
       icon: Palette,
-      title: "Cafeteria Menus",
-      description: "Eye-catching menu designs that showcase your offerings beautifully and professionally.",
+      title: "Menutë e Kafiterisë",
+      description: "Dizajne menuje tërheqëse që shfaqin ofertat tuaja në mënyrë të bukur dhe profesionale.",
       image: "photo-1558618666-fcd25c85cd64",
       color: "from-blue-200 to-cyan-300"
     },
     {
       icon: Star,
-      title: "Brochure Printing",
-      description: "High-quality brochures that tell your story and showcase your business professionally.",
+      title: "Shtypje Broshurash",
+      description: "Broshura me cilësi të lartë që tregojnë historinë tuaj dhe paraqesin biznesin tuaj profesionalisht.",
       image: "photo-1542744094-3a31f272c490",
       color: "from-slate-200 to-sky-300"
     }
@@ -80,21 +80,21 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Event Coordinator",
-      content: "HOPE delivered amazing quality and fast turnaround! Our event t-shirts looked fantastic.",
+      name: "Arlinda Krasniqi",
+      role: "Koordinatore Eventesh",
+      content: "HOPE dha cilësi të shkëlqyer dhe kohë të shpejtë realizimi! Bluzat e eventit tonë dukeshin fantastike.",
       rating: 5
     },
     {
-      name: "Mike Chen",
-      role: "Small Business Owner",
-      content: "The business cards exceeded our expectations. Professional and eye-catching design!",
+      name: "Burim Hoxha",
+      role: "Pronar Biznesi të Vogël",
+      content: "Kartëvizitat tejkaluan pritjet tona. Dizajn profesional dhe tërheqës!",
       rating: 5
     },
     {
-      name: "Emily Davis",
-      role: "Marketing Director",
-      content: "Great service and beautiful designs. Our team mugs are a huge hit in the office!",
+      name: "Ermira Berisha",
+      role: "Drejtoreshë Marketingu",
+      content: "Shërbim i shkëlqyer dhe dizajne të bukura. Kupat e ekipit tonë janë hit i madh në zyrë!",
       rating: 5
     }
   ];
@@ -112,13 +112,13 @@ const Index = () => {
             />
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#services" className="text-slate-600 hover:text-blue-600 transition-colors">Services</a>
-            <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">About</a>
-            <a href="#testimonials" className="text-slate-600 hover:text-blue-600 transition-colors">Reviews</a>
-            <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
+            <a href="#services" className="text-slate-600 hover:text-blue-600 transition-colors">Shërbimet</a>
+            <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">Rreth Nesh</a>
+            <a href="#testimonials" className="text-slate-600 hover:text-blue-600 transition-colors">Vlerësimet</a>
+            <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Kontakti</a>
           </nav>
           <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-            Get Quote
+            Kërko Ofertë
           </Button>
         </div>
       </header>
@@ -130,21 +130,21 @@ const Index = () => {
           <div className="text-center">
             <h1 className="scroll-animate opacity-0 translate-y-8 mb-6 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
               <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-slate-600 bg-clip-text text-transparent">
-                Bring Your Vision
+                Sjellim Vizionin Tuaj
               </span>
               <br />
-              <span className="text-slate-800">to Life</span>
+              <span className="text-slate-800">Në Jetë</span>
             </h1>
             <p className="scroll-animate opacity-0 translate-y-8 mx-auto mb-8 max-w-2xl text-xl text-slate-600 leading-relaxed">
-              At HOPE, we transform your creative ideas into beautiful, high-quality printed products. From custom apparel to professional materials, we bring your brand to life with precision and care.
+              Në HOPE, ne transformojmë idetë tuaja krijuese në produkte të shtypura me cilësi të lartë. Nga veshjet e personalizuara deri te materialet profesionale, ne sjellim markën tuaj në jetë me precizion dhe kujdes.
             </p>
             <div className="scroll-animate opacity-0 translate-y-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Start Your Project
+                Fillo Projektin Tënd
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg" className="border-2 border-blue-300 text-blue-600 hover:border-blue-500 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
-                View Portfolio
+                Shiko Portofolio
               </Button>
             </div>
           </div>
@@ -161,10 +161,10 @@ const Index = () => {
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="scroll-animate opacity-0 translate-y-8 text-4xl font-bold text-slate-900 mb-4">
-              Our Creative Services
+              Shërbimet Tona Krijuese
             </h2>
             <p className="scroll-animate opacity-0 translate-y-8 text-xl text-slate-600 max-w-2xl mx-auto">
-              Discover our comprehensive range of printing solutions, each crafted with attention to detail and professional quality.
+              Zbuloni gamën tonë gjithëpërfshirëse të zgjidhjeve të shtypjes, secila e punuar me kujdes të detajeve dhe cilësi profesionale.
             </p>
           </div>
           
@@ -211,7 +211,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="scroll-animate opacity-0 translate-y-8 text-4xl font-bold text-slate-900 mb-6">
-                Why Choose HOPE?
+                Pse të Zgjidhni HOPE?
               </h2>
               <div className="space-y-6">
                 <div className="scroll-animate opacity-0 translate-y-8 flex items-start space-x-4">
@@ -219,8 +219,8 @@ const Index = () => {
                     <Star className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Premium Quality Materials</h3>
-                    <p className="text-slate-600">We use only the finest materials to ensure your prints look amazing and last longer.</p>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Materiale me Cilësi Premium</h3>
+                    <p className="text-slate-600">Ne përdorim vetëm materialet më të mira për të siguruar që shtypjet tuaja të duken mahnitëse dhe të zgjatin më gjatë.</p>
                   </div>
                 </div>
                 <div className="scroll-animate opacity-0 translate-y-8 flex items-start space-x-4">
@@ -228,8 +228,8 @@ const Index = () => {
                     <Users className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Expert Design Team</h3>
-                    <p className="text-slate-600">Our talented designers work with you to create stunning, unique designs that capture your vision.</p>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Ekip Ekspert Dizajni</h3>
+                    <p className="text-slate-600">Dizajnerët tanë të talentuar punojnë me ju për të krijuar dizajne mahnitëse dhe unike që kapin vizionin tuaj.</p>
                   </div>
                 </div>
                 <div className="scroll-animate opacity-0 translate-y-8 flex items-start space-x-4">
@@ -237,8 +237,8 @@ const Index = () => {
                     <ChevronRight className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Fast Turnaround</h3>
-                    <p className="text-slate-600">Quick production times without compromising quality. Get your orders when you need them.</p>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Realizim i Shpejtë</h3>
+                    <p className="text-slate-600">Kohë të shpejta prodhimi pa kompromentuar cilësinë. Merrni porositë tuaja kur t'ju duhen.</p>
                   </div>
                 </div>
               </div>
@@ -262,10 +262,10 @@ const Index = () => {
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="scroll-animate opacity-0 translate-y-8 text-4xl font-bold text-slate-900 mb-4">
-              What Our Customers Say
+              Çfarë Thonë Klientët Tanë
             </h2>
             <p className="scroll-animate opacity-0 translate-y-8 text-xl text-slate-600">
-              Join thousands of happy customers who trust HOPE for their printing needs
+              Bashkohu me mijëra klientë të lumtur që i besojnë HOPE për nevojat e tyre të shtypjes
             </p>
           </div>
           
@@ -292,18 +292,18 @@ const Index = () => {
       <section id="contact" className="py-20 px-4 bg-gradient-to-r from-blue-500 via-sky-500 to-slate-500">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="scroll-animate opacity-0 translate-y-8 text-4xl font-bold text-white mb-6">
-            Ready to Bring Your Ideas to Life?
+            Gati të Sillni Idetë Tuaja në Jetë?
           </h2>
           <p className="scroll-animate opacity-0 translate-y-8 text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Start your creative journey with HOPE today. Upload your design or work with our team to create something amazing.
+            Filloni udhëtimin tuaj krijues me HOPE sot. Ngarkoni dizajnin tuaj ose punoni me ekipin tonë për të krijuar diçka mahnitëse.
           </p>
           <div className="scroll-animate opacity-0 translate-y-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
-              Get Started Now
+              Fillo Tani
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
-              Contact Us
+              Na Kontaktoni
             </Button>
           </div>
         </div>
@@ -324,7 +324,7 @@ const Index = () => {
               </h3>
             </div>
             <p className="text-slate-400 mb-6">
-              Transforming ideas into beautiful printed reality with creativity and care
+              Duke transformuar idetë në realitet të shtypura të bukura me kreativitet dhe kujdes
             </p>
           </div>
 
@@ -345,9 +345,9 @@ const Index = () => {
           </div>
 
           <div className="flex justify-center space-x-6 text-sm text-slate-400 border-t border-slate-700 pt-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+            <a href="#" className="hover:text-white transition-colors">Politika e Privatësisë</a>
+            <a href="#" className="hover:text-white transition-colors">Kushtet e Shërbimit</a>
+            <a href="#" className="hover:text-white transition-colors">Kontakti</a>
           </div>
         </div>
       </footer>
