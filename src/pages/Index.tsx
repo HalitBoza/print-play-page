@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star } from 'lucide-react';
+import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star, Phone, Instagram, Facebook } from 'lucide-react';
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -311,21 +311,40 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-12 px-4 bg-slate-800 text-white">
-        <div className="mx-auto max-w-7xl text-center">
-          <div className="flex items-center justify-center mb-4">
-            <img 
-              src="/lovable-uploads/9ae32d82-5a3b-432f-a7b3-72384eeb9b4b.png" 
-              alt="HOPE Logo" 
-              className="h-8 w-auto mr-3"
-            />
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">
-              HOPE
-            </h3>
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center mb-4">
+              <img 
+                src="/lovable-uploads/9ae32d82-5a3b-432f-a7b3-72384eeb9b4b.png" 
+                alt="HOPE Logo" 
+                className="h-8 w-auto mr-3"
+              />
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">
+                HOPE
+              </h3>
+            </div>
+            <p className="text-slate-400 mb-6">
+              Transforming ideas into beautiful printed reality with creativity and care
+            </p>
           </div>
-          <p className="text-slate-400 mb-6">
-            Transforming ideas into beautiful printed reality with creativity and care
-          </p>
-          <div className="flex justify-center space-x-6 text-sm text-slate-400">
+
+          {/* Contact Information */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-slate-300">
+            <a href="tel:+38345424872" className="flex items-center gap-2 hover:text-sky-400 transition-colors">
+              <Phone className="h-5 w-5" />
+              <span>+383 45 424 872</span>
+            </a>
+            <a href="https://instagram.com/hopeprint.ks" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sky-400 transition-colors">
+              <Instagram className="h-5 w-5" />
+              <span>@hopeprint.ks</span>
+            </a>
+            <a href="https://facebook.com/HopePrint.Ks" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sky-400 transition-colors">
+              <Facebook className="h-5 w-5" />
+              <span>HopePrint.Ks</span>
+            </a>
+          </div>
+
+          <div className="flex justify-center space-x-6 text-sm text-slate-400 border-t border-slate-700 pt-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Contact</a>
