@@ -13,7 +13,7 @@ import polar from '@/assets/winter-polar.jpg';
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [activeCollection, setActiveCollection] = useState<'winter' | 'summer'>('winter');
+  const [activeCollection, setActiveCollection] = useState<'winter' | 'summer' | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
