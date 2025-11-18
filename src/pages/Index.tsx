@@ -178,7 +178,7 @@ const Index = () => {
             {/* Collection Toggle */}
             <div className="flex justify-center gap-4 mb-12">
               <Button
-                onClick={() => setActiveCollection('winter')}
+                onClick={() => setActiveCollection(activeCollection === 'winter' ? null : 'winter')}
                 variant={activeCollection === 'winter' ? 'default' : 'outline'}
                 size="lg"
                 className={`rounded-full px-8 py-6 text-lg transition-all duration-300 ${
@@ -191,7 +191,7 @@ const Index = () => {
                 Koleksioni Dimëror
               </Button>
               <Button
-                onClick={() => setActiveCollection('summer')}
+                onClick={() => setActiveCollection(activeCollection === 'summer' ? null : 'summer')}
                 variant={activeCollection === 'summer' ? 'default' : 'outline'}
                 size="lg"
                 className={`rounded-full px-8 py-6 text-lg transition-all duration-300 ${
