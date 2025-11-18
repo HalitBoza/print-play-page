@@ -3,6 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star, Phone, Instagram, Facebook, Snowflake, Sun } from 'lucide-react';
+import polarFleece from '@/assets/winter-polar-fleece.jpg';
+import longSleeve from '@/assets/winter-long-sleeve.jpg';
+import winterJacket from '@/assets/winter-jacket.jpg';
+import sweatshirt from '@/assets/winter-sweatshirt.jpg';
+import hoodie from '@/assets/winter-hoodie.jpg';
+import zipHoodie from '@/assets/winter-zip-hoodie.jpg';
+import polar from '@/assets/winter-polar.jpg';
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -203,53 +210,86 @@ const Index = () => {
           {activeCollection === 'winter' && (
             <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
               <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-300">
+                <div className="relative h-64 overflow-hidden bg-white">
                   <img 
-                    src={`https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop`}
-                    alt="Bluza me Kapuç Dimërore"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src={polarFleece}
+                    alt="Duks Polar"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <Users className="h-12 w-12 text-blue-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Bluza me Kapuç Dimërore</h3>
-                  <p className="text-slate-600">
-                    Bluza të ngrohta dhe të rehatshme me dizajnet tuaja, perfekte për dimër të ftohtë.
-                  </p>
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks Polar</h3>
+                  <p className="text-slate-600">Polar me cilësi të lartë për dimrin</p>
                 </div>
               </Card>
 
               <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-blue-200 to-slate-300">
+                <div className="relative h-64 overflow-hidden bg-white">
                   <img 
-                    src={`https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&auto=format&fit=crop`}
-                    alt="Kupa për Pije të Ngrohta"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src={longSleeve}
+                    alt="Maicë me logo me mëngë të gjata"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <Coffee className="h-12 w-12 text-blue-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Kupa për Pije të Ngrohta</h3>
-                  <p className="text-slate-600">
-                    Kupa të personalizuara për kafenë dhe çajin tuaj dimëror të preferuar.
-                  </p>
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">Maicë me Mëngë të Gjata</h3>
+                  <p className="text-slate-600">Polo me logo të personalizuar</p>
                 </div>
               </Card>
 
               <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-cyan-200 to-blue-300">
+                <div className="relative h-64 overflow-hidden bg-white">
                   <img 
-                    src={`https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&auto=format&fit=crop`}
-                    alt="Kartëvizita Profesionale"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src={winterJacket}
+                    alt="Duks me jaka"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <CreditCard className="h-12 w-12 text-blue-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Kartëvizita Profesionale</h3>
-                  <p className="text-slate-600">
-                    Bëni përshtypje në takimet e dimrit me kartëvizita elegante.
-                  </p>
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks me Jaka</h3>
+                  <p className="text-slate-600">Xhaketë me zinxhir për dimrin</p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
+                <div className="relative h-64 overflow-hidden bg-white">
+                  <img 
+                    src={sweatshirt}
+                    alt="Duks zero jaka"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks zero Jaka</h3>
+                  <p className="text-slate-600">Bluză klasike pa kapuç</p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
+                <div className="relative h-64 overflow-hidden bg-white">
+                  <img 
+                    src={hoodie}
+                    alt="Duks me kapuq"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks me Kapuq</h3>
+                  <p className="text-slate-600">Bluză me kapuç klasike</p>
+                </div>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
+                <div className="relative h-64 overflow-hidden bg-white">
+                  <img 
+                    src={zipHoodie}
+                    alt="Duks me patent dhe kapuq"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks me Patent dhe Kapuq</h3>
+                  <p className="text-slate-600">Bluză me zinxhir dhe kapuç</p>
                 </div>
               </Card>
             </div>
