@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ArrowLeft, Plus, Pencil, Trash2, Sun, Shirt, Pen, Star } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 interface Product {
   id: string;
@@ -46,6 +47,7 @@ const iconMap = {
 };
 
 const SummerCollection = () => {
+  const { isAdmin } = useAuth();
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -123,62 +125,64 @@ const SummerCollection = () => {
               Produkte të freskëta dhe të gjalla për sezonin e verës
             </p>
 
-            {/* Add Product Button */}
-            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-              <DialogTrigger asChild>
-                <Button 
-                  onClick={() => handleOpenModal()}
-                  className="bg-sky-500 hover:bg-sky-600 text-white"
-                >
-                  <Plus className="mr-2 h-4 w-4" />
-                  Shto Produkt
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle>
-                    {editingProduct ? 'Ndrysho Produktin' : 'Shto Produkt të Ri'}
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="title">Titulli</Label>
-                    <Input
-                      id="title"
-                      value={formData.title}
-                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                      placeholder="Emri i produktit"
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="description">Përshkrimi</Label>
-                    <Input
-                      id="description"
-                      value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      placeholder="Përshkrim i shkurtër"
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="image">URL e Imazhit (opsionale)</Label>
-                    <Input
-                      id="image"
-                      value={formData.image}
-                      onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                      placeholder="https://example.com/image.jpg"
-                    />
-                  </div>
-                </div>
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <Button variant="outline">Anulo</Button>
-                  </DialogClose>
-                  <Button onClick={handleSave} className="bg-sky-500 hover:bg-sky-600">
-                    {editingProduct ? 'Ruaj Ndryshimet' : 'Shto'}
+            {/* Add Product Button - Only visible for admins */}
+            {isAdmin && (
+              <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                <DialogTrigger asChild>
+                  <Button 
+                    onClick={() => handleOpenModal()}
+                    className="bg-sky-500 hover:bg-sky-600 text-white"
+                  >
+                    <Plus className="mr-2 h-4 w-4" />
+                    Shto Produkt
                   </Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>
+                      {editingProduct ? 'Ndrysho Produktin' : 'Shto Produkt të Ri'}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="title">Titulli</Label>
+                      <Input
+                        id="title"
+                        value={formData.title}
+                        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                        placeholder="Emri i produktit"
+                      />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="description">Përshkrimi</Label>
+                      <Input
+                        id="description"
+                        value={formData.description}
+                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                        placeholder="Përshkrim i shkurtër"
+                      />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="image">URL e Imazhit (opsionale)</Label>
+                      <Input
+                        id="image"
+                        value={formData.image}
+                        onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                        placeholder="https://example.com/image.jpg"
+                      />
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button variant="outline">Anulo</Button>
+                    </DialogClose>
+                    <Button onClick={handleSave} className="bg-sky-500 hover:bg-sky-600">
+                      {editingProduct ? 'Ruaj Ndryshimet' : 'Shto'}
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            )}
           </div>
 
           {/* Products Grid */}
@@ -187,24 +191,27 @@ const SummerCollection = () => {
               const IconComponent = iconMap[product.icon];
               return (
                 <Card key={product.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200 relative">
-                  <div className="absolute top-4 right-4 z-10 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button
-                      size="icon"
-                      variant="secondary"
-                      onClick={() => handleOpenModal(product)}
-                      className="h-8 w-8 bg-white/90 hover:bg-white"
-                    >
-                      <Pencil className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="icon"
-                      variant="destructive"
-                      onClick={() => handleDelete(product.id)}
-                      className="h-8 w-8"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  {/* Edit/Delete buttons - Only visible for admins */}
+                  {isAdmin && (
+                    <div className="absolute top-4 right-4 z-10 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Button
+                        size="icon"
+                        variant="secondary"
+                        onClick={() => handleOpenModal(product)}
+                        className="h-8 w-8 bg-white/90 hover:bg-white"
+                      >
+                        <Pencil className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        size="icon"
+                        variant="destructive"
+                        onClick={() => handleDelete(product.id)}
+                        className="h-8 w-8"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
                   <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-300">
                     <img 
                       src={product.image}
