@@ -1,19 +1,12 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ChevronRight, Palette, Shirt, CreditCard, Coffee, Pen, Users, Star, Phone, Instagram, Facebook, Snowflake, Sun } from 'lucide-react';
-import polarFleece from '@/assets/winter-polar-fleece.jpg';
-import longSleeve from '@/assets/winter-long-sleeve.jpg';
-import winterJacket from '@/assets/winter-jacket.jpg';
-import sweatshirt from '@/assets/winter-sweatshirt.jpg';
-import hoodie from '@/assets/winter-hoodie.jpg';
-import zipHoodie from '@/assets/winter-zip-hoodie.jpg';
-import polar from '@/assets/winter-polar.jpg';
 
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [activeCollection, setActiveCollection] = useState<'winter' | 'summer' | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -175,181 +168,30 @@ const Index = () => {
               Zgjidhni koleksionin e duhur për sezonin tuaj
             </p>
             
-            {/* Collection Toggle */}
+            {/* Collection Links */}
             <div className="flex justify-center gap-4 mb-12">
-              <Button
-                onClick={() => setActiveCollection(activeCollection === 'winter' ? null : 'winter')}
-                variant={activeCollection === 'winter' ? 'default' : 'outline'}
-                size="lg"
-                className={`rounded-full px-8 py-6 text-lg transition-all duration-300 ${
-                  activeCollection === 'winter' 
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg' 
-                    : 'border-blue-300 text-blue-600 hover:bg-blue-50'
-                }`}
-              >
-                <Snowflake className="mr-2 h-5 w-5" />
-                Koleksioni Dimëror
-              </Button>
-              <Button
-                onClick={() => setActiveCollection(activeCollection === 'summer' ? null : 'summer')}
-                variant={activeCollection === 'summer' ? 'default' : 'outline'}
-                size="lg"
-                className={`rounded-full px-8 py-6 text-lg transition-all duration-300 ${
-                  activeCollection === 'summer' 
-                    ? 'bg-sky-500 hover:bg-sky-600 text-white shadow-lg' 
-                    : 'border-sky-300 text-sky-600 hover:bg-sky-50'
-                }`}
-              >
-                <Sun className="mr-2 h-5 w-5" />
-                Koleksioni Veror
-              </Button>
+              <Link to="/collections/winter">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-8 py-6 text-lg transition-all duration-300 border-blue-300 text-blue-600 hover:bg-blue-600 hover:text-white hover:shadow-lg"
+                >
+                  <Snowflake className="mr-2 h-5 w-5" />
+                  Koleksioni Dimëror
+                </Button>
+              </Link>
+              <Link to="/collections/summer">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-8 py-6 text-lg transition-all duration-300 border-sky-300 text-sky-600 hover:bg-sky-500 hover:text-white hover:shadow-lg"
+                >
+                  <Sun className="mr-2 h-5 w-5" />
+                  Koleksioni Veror
+                </Button>
+              </Link>
             </div>
           </div>
-
-          {/* Winter Collection */}
-          {activeCollection === 'winter' && (
-            <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-white">
-                  <img 
-                    src={polarFleece}
-                    alt="Duks Polar"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks Polar</h3>
-                  <p className="text-slate-600">Polar me cilësi të lartë për dimrin</p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-white">
-                  <img 
-                    src={longSleeve}
-                    alt="Maicë me logo me mëngë të gjata"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">Maicë me Mëngë të Gjata</h3>
-                  <p className="text-slate-600">Polo me logo të personalizuar</p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-white">
-                  <img 
-                    src={winterJacket}
-                    alt="Duks me jaka"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks me Jaka</h3>
-                  <p className="text-slate-600">Xhaketë me zinxhir për dimrin</p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-white">
-                  <img 
-                    src={sweatshirt}
-                    alt="Duks zero jaka"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks zero Jaka</h3>
-                  <p className="text-slate-600">Bluză klasike pa kapuç</p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-white">
-                  <img 
-                    src={hoodie}
-                    alt="Duks me kapuq"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks me Kapuq</h3>
-                  <p className="text-slate-600">Bluză me kapuç klasike</p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-blue-200">
-                <div className="relative h-64 overflow-hidden bg-white">
-                  <img 
-                    src={zipHoodie}
-                    alt="Duks me patent dhe kapuq"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">Duks me Patent dhe Kapuq</h3>
-                  <p className="text-slate-600">Bluză me zinxhir dhe kapuç</p>
-                </div>
-              </Card>
-            </div>
-          )}
-
-          {/* Summer Collection */}
-          {activeCollection === 'summer' && (
-            <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-300">
-                  <img 
-                    src={`https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop`}
-                    alt="Bluza Verore"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <Shirt className="h-12 w-12 text-sky-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Bluza Verore</h3>
-                  <p className="text-slate-600">
-                    Bluza të lehta dhe të freskëta për ditët e nxehta të verës.
-                  </p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-slate-200 to-blue-300">
-                  <img 
-                    src={`https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&auto=format&fit=crop`}
-                    alt="Stilolapsa për Verë"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <Pen className="h-12 w-12 text-sky-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Stilolapsa për Verë</h3>
-                  <p className="text-slate-600">
-                    Stilolapsa elegante për konferencat dhe ngjarjet verore.
-                  </p>
-                </div>
-              </Card>
-
-              <Card className="scroll-animate opacity-0 translate-y-8 overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200">
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-slate-200 to-sky-300">
-                  <img 
-                    src={`https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop`}
-                    alt="Broshura Verore"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <Star className="h-12 w-12 text-sky-600 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-slate-800">Broshura Verore</h3>
-                  <p className="text-slate-600">
-                    Materiale marketingu të gjalla për promovime verore.
-                  </p>
-                </div>
-              </Card>
-            </div>
-          )}
         </div>
       </section>
 
