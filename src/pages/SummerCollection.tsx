@@ -13,7 +13,6 @@ interface Product {
   title: string;
   description: string;
   image: string;
-  icon: 'shirt' | 'pen' | 'star';
 }
 
 const summerImages = [
@@ -35,10 +34,9 @@ const summerImages = [
 
 const initialProducts: Product[] = summerImages.map((url, idx) => ({
   id: (idx + 1).toString(),
-  title: `Produkt Veror #${idx + 1}`,
+  title: `Produkt Veror`,
   description: 'Prodhuar enkas për sezonin e verës.',
   image: url,
-  icon: ['shirt', 'pen', 'star'][idx % 3] as Product["icon"],
 }));
 
 const iconMap = {
@@ -52,41 +50,39 @@ const SummerCollection = () => {
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  const [formData, setFormData] = useState({ title: '', description: '', image: '', icon: 'shirt' as Product['icon'] });
+  const [formData, setFormData] = useState({ title: '', description: '', image: '' });
 
   const handleOpenModal = (product?: Product) => {
     if (product) {
       setEditingProduct(product);
-      setFormData({ title: product.title, description: product.description, image: product.image, icon: product.icon });
+      setFormData({ title: product.title, description: product.description, image: product.image });
     } else {
       setEditingProduct(null);
-      setFormData({ title: '', description: '', image: '', icon: 'shirt' });
+      setFormData({ title: '', description: '', image: '' });
     }
     setIsModalOpen(true);
   };
 
   const handleSave = () => {
     if (editingProduct) {
-      setProducts(products.map(p => 
-        p.id === editingProduct.id 
-          ? { ...p, title: formData.title, description: formData.description, image: formData.image || p.image, icon: formData.icon }
+      setProducts(products.map(p =>
+        p.id === editingProduct.id
+          ? { ...p, title: formData.title, description: formData.description, image: formData.image || p.image }
           : p
       ));
     } else {
       // Default to the first image, unless user supplies a valid image, and auto-pick an icon round-robin
       const nextIdx = products.length % summerImages.length;
-      const iconOptions: Product["icon"][] = ['shirt', 'pen', 'star'];
       const newProduct: Product = {
         id: Date.now().toString(),
         title: formData.title || `Produkt Veror #${products.length + 1}`,
         description: formData.description || 'Prodhuar enkas për sezonin e verës.',
         image: formData.image || summerImages[nextIdx],
-        icon: formData.icon || iconOptions[products.length % 3],
       };
       setProducts([...products, newProduct]);
     }
     setIsModalOpen(false);
-    setFormData({ title: '', description: '', image: '', icon: 'shirt' });
+    setFormData({ title: '', description: '', image: '' });
     setEditingProduct(null);
   };
 
@@ -100,9 +96,9 @@ const SummerCollection = () => {
       <header className="py-6 px-4 bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-blue-100">
         <div className="mx-auto max-w-7xl flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
-            <img 
-              src="/lovable-uploads/9ae32d82-5a3b-432f-a7b3-72384eeb9b4b.png" 
-              alt="HOPE Logo" 
+            <img
+              src="/lovable-uploads/9ae32d82-5a3b-432f-a7b3-72384eeb9b4b.png"
+              alt="HOPE Logo"
               className="h-12 w-auto"
             />
           </Link>
@@ -133,7 +129,7 @@ const SummerCollection = () => {
             {isAdmin && (
               <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
                 <DialogTrigger asChild>
-                  <Button 
+                  <Button
                     onClick={() => handleOpenModal()}
                     className="bg-sky-500 hover:bg-sky-600 text-white"
                   >
@@ -192,7 +188,6 @@ const SummerCollection = () => {
           {/* Products Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {products.map((product) => {
-              const IconComponent = iconMap[product.icon];
               return (
                 <Card key={product.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-300 border-sky-200 relative">
                   {/* Edit/Delete buttons - Only visible for admins */}
@@ -217,16 +212,16 @@ const SummerCollection = () => {
                     </div>
                   )}
                   <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-300">
-                    <img 
+                    <img
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center group-hover:scale-110 transition-transform duration-500"
+                      style={{ objectFit: 'contain' }}
                     />
                   </div>
                   <div className="p-6">
-                    <IconComponent className="h-12 w-12 text-sky-600 mb-4" />
                     <h3 className="text-2xl font-bold mb-3 text-slate-800">{product.title}</h3>
-                    <p className="text-slate-600">{product.description}</p>
+                    {/* <p className="text-slate-600">{product.description}</p> */}
                   </div>
                 </Card>
               );
