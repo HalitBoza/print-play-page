@@ -281,7 +281,7 @@ const Index = () => {
             Gati të Sillni Idetë Tuaja në Jetë?
           </h2>
           <p className="scroll-animate opacity-0 translate-y-8 text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Filloni udhëtimin tuaj krijues me HOPE sot. Ngarkoni dizajnin tuaj ose punoni me ekipin tonë për të krijuar diçka mahnitëse.
+            Filloni udhëtimin tuaj krijues me Hope Print sot. Ngarkoni dizajnin tuaj ose punoni me ekipin tonë për të krijuar diçka mahnitëse.
           </p>
           <div className="scroll-animate opacity-0 translate-y-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
@@ -301,9 +301,6 @@ const Index = () => {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <img src="/lovable-uploads/9ae32d82-5a3b-432f-a7b3-72384eeb9b4b.png" alt="HOPE Logo" className="h-8 w-auto mr-3" />
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">
-                HOPE
-              </h3>
             </div>
             <p className="text-slate-400 mb-6">
               Duke transformuar idetë në realitet të shtypura të bukura me kreativitet dhe kujdes
